@@ -9,13 +9,21 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.wadebutler.fly"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "747dc109-140a-47d7-81ad-ab6dc675957f"
       }
     }
   }
