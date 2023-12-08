@@ -6,16 +6,23 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import Images from "./assets/Images";
+import Images from "../assets/Images";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Landing() {
+  const navigation = useNavigation();
+
   return (
     <ImageBackground
       resizeMode="cover"
       source={Images.background}
       style={styles.container}
     >
-      <Text>Landing</Text>
+      <Text>Focus Flight</Text>
+
+      <TouchableOpacity onPress={() => navigation.navigate("game")}>
+        <Text>Take Flight!</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
@@ -23,5 +30,7 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

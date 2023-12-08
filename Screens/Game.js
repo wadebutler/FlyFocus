@@ -11,8 +11,11 @@ import entities from "../entities";
 import Physics from "../physics";
 import { useEffect, useState } from "react";
 import Images from "../assets/Images";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Game() {
+  const navigation = useNavigation();
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
   const [currentPoints, setCurrentPoints] = useState(0);
@@ -28,6 +31,14 @@ export default function Game() {
       style={styles.container}
     >
       <Text style={styles.pointText}>{currentPoints}</Text>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate("landing")}
+        style={styles.returnArrow}
+      >
+        <Text style={{ marginBottom: -17, fontSize: 20 }}>Back</Text>
+        <Ionicons name="return-down-back-outline" size={50} color="black" />
+      </TouchableOpacity>
 
       <GameEngine
         ref={(ref) => {
@@ -81,8 +92,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 40,
     fontWeight: "bold",
-    margin: 20,
-    elevation: 1,
+    zIndex: 1,
     color: "white",
   },
   engineStyle: {
@@ -111,5 +121,11 @@ const styles = StyleSheet.create({
   gameOverImage: {
     height: 100,
     width: "90%",
+  },
+  returnArrow: {
+    position: "absolute",
+    zIndex: 1,
+    top: 10,
+    left: 10,
   },
 });
