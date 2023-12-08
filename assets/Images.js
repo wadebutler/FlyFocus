@@ -6,4 +6,5 @@ export default Images = {
   bird1: require("./bird-upflap.png"),
   bird2: require("./bird-midflap.png"),
   bird3: require("./bird-downflap.png"),
+  gameOver: require("./gameover.png"),
 };

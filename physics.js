@@ -2,7 +2,6 @@ import Matter from "matter-js";
 import { getPipeSizePosPair } from "./utils/utils";
 import { Dimensions } from "react-native";
 
-const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 let tick = 0;
 let pose = 1;
@@ -57,7 +56,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
     });
   }
 
-  Matter.Events.on(engine, "collisionStart", (event) => {
+  Matter.Events.on(engine, "collisionStart", () => {
     dispatch({ type: "game_over" });
   });
 

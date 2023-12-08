@@ -1,7 +1,5 @@
-// import { StatusBar } from "expo-status-bar";
 import Matter from "matter-js";
-import { StyleSheet, Text, View, Image, Animated } from "react-native";
-import { GameEngine } from "react-native-game-engine";
+import { Animated } from "react-native";
 import Images from "../assets/Images";
 
 const Character = (props) => {

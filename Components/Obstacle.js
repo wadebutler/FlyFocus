@@ -1,7 +1,5 @@
-// import { StatusBar } from "expo-status-bar";
 import Matter from "matter-js";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { GameEngine } from "react-native-game-engine";
+import { View, Image } from "react-native";
 import Images from "../assets/Images";
 
 const Obstacle = (props) => {
@@ -44,7 +42,7 @@ const Obstacle = (props) => {
   );
 };
 
-export default (world, label, color, pos, size) => {
+export default (world, label, pos, size) => {
   const initialObstacle = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -56,7 +54,6 @@ export default (world, label, color, pos, size) => {
 
   return {
     body: initialObstacle,
-    color,
     pos,
     renderer: <Obstacle />,
   };

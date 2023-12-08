@@ -1,10 +1,10 @@
-// import { StatusBar } from "expo-status-bar";
 import {
-  StyleSheet,
   Text,
   TouchableOpacity,
-  View,
   ImageBackground,
+  View,
+  StyleSheet,
+  Image,
 } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 import entities from "./entities";
@@ -25,20 +25,9 @@ export default function App() {
     <ImageBackground
       resizeMode="cover"
       source={Images.background}
-      style={{ flex: 1 }}
+      style={styles.container}
     >
-      <Text
-        style={{
-          textAlign: "center",
-          fontSize: 40,
-          fontWeight: "bold",
-          margin: 20,
-          elevation: 1,
-          color: "white",
-        }}
-      >
-        {currentPoints}
-      </Text>
+      <Text style={styles.pointText}>{currentPoints}</Text>
 
       <GameEngine
         ref={(ref) => {
@@ -58,21 +47,69 @@ export default function App() {
               break;
           }
         }}
-        style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0 }}
+        style={styles.engineStyle}
       />
 
       {running ? null : (
-        <TouchableOpacity
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-          onPress={() => {
-            gameEngine.swap(entities());
-            setCurrentPoints(0);
-            setRunning(true);
-          }}
-        >
-          <Text>Play Again?</Text>
-        </TouchableOpacity>
+        <View style={styles.playAgainContainer}>
+          <TouchableOpacity
+            style={styles.playAgainButton}
+            onPress={() => {
+              gameEngine.swap(entities());
+              setCurrentPoints(0);
+              setRunning(true);
+            }}
+          >
+            <Image
+              style={styles.gameOverImage}
+              resizeMode="stretch"
+              source={Images.gameOver}
+            />
+            <Text style={styles.playAgainText}>Play Again?</Text>
+          </TouchableOpacity>
+        </View>
       )}
     </ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  pointText: {
+    textAlign: "center",
+    fontSize: 40,
+    fontWeight: "bold",
+    margin: 20,
+    elevation: 1,
+    color: "white",
+  },
+  engineStyle: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  playAgainContainer: {
+    position: "absolute",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    height: "100%",
+    width: "100%",
+    elevation: 2,
+  },
+  playAgainButton: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  playAgainText: {
+    color: "white",
+    fontSize: 40,
+  },
+  gameOverImage: {
+    height: 100,
+    width: "90%",
+  },
+});

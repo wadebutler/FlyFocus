@@ -1,7 +1,5 @@
-// import { StatusBar } from "expo-status-bar";
 import Matter from "matter-js";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { GameEngine } from "react-native-game-engine";
+import { View, Image } from "react-native";
 import Images from "../assets/Images";
 
 const Floor = (props) => {
@@ -11,14 +9,9 @@ const Floor = (props) => {
   const x = props.body.position.x - width / 2;
   const y = props.body.position.y - height / 2;
 
-  const color = props.color;
-
-  const imageIteration = Math.ceil(width / height);
-
   return (
     <View
       style={{
-        // backgroundColor: color,
         position: "absolute",
         left: x,
         top: y,
@@ -33,7 +26,7 @@ const Floor = (props) => {
   );
 };
 
-export default (world, color, pos, size) => {
+export default (world, pos, size) => {
   const initialFloor = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -45,7 +38,6 @@ export default (world, color, pos, size) => {
 
   return {
     body: initialFloor,
-    color,
     pos,
     renderer: <Floor />,
   };

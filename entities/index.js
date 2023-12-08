@@ -8,7 +8,7 @@ import { getPipeSizePosPair } from "../utils/utils";
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
-export default (restart) => {
+export default () => {
   let engine = Matter.Engine.create({ enableSleeping: false });
 
   let world = engine.world;
@@ -24,34 +24,29 @@ export default (restart) => {
     ObstacleTop1: Obstacle(
       world,
       "ObstacleTop1",
-      "red",
       pipeSizePos1.pipeTop.pos,
       pipeSizePos1.pipeTop.size
     ),
     ObstacleBottom1: Obstacle(
       world,
       "ObstacleBottom1",
-      "blue",
       pipeSizePos1.pipeBottom.pos,
       pipeSizePos1.pipeBottom.size
     ),
     ObstacleTop2: Obstacle(
       world,
       "ObstacleTop2",
-      "red",
       pipeSizePos2.pipeTop.pos,
       pipeSizePos2.pipeTop.size
     ),
     ObstacleBottom2: Obstacle(
       world,
       "ObstacleBottom2",
-      "blue",
       pipeSizePos2.pipeBottom.pos,
       pipeSizePos2.pipeBottom.size
     ),
     Floor: Floor(
       world,
-      "red",
       { x: windowWidth / 2, y: windowHeight },
       { height: 50, width: windowWidth }
     ),
