@@ -1,13 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  View,
-  StyleSheet,
-  Image,
-} from "react-native";
 import Landing from "./Screens/Landing";
 import Game from "./Screens/Game";
 import { StatusBar } from "react-native";
@@ -34,5 +26,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});

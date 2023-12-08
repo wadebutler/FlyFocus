@@ -2,9 +2,8 @@ import {
   Text,
   TouchableOpacity,
   ImageBackground,
-  View,
   StyleSheet,
-  Image,
+  View,
 } from "react-native";
 import Images from "../assets/Images";
 import { useNavigation } from "@react-navigation/native";
@@ -18,10 +17,13 @@ export default function Landing() {
       source={Images.background}
       style={styles.container}
     >
-      <Text>Focus Flight</Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Flight</Text>
+        <Text style={styles.title}>Focus</Text>
+      </View>
 
       <TouchableOpacity onPress={() => navigation.navigate("game")}>
-        <Text>Take Flight!</Text>
+        <Text style={styles.title}>Start</Text>
       </TouchableOpacity>
     </ImageBackground>
   );
@@ -30,7 +32,17 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
+  },
+  titleContainer: {
+    alignItems: "center",
+    marginBottom: 60,
+  },
+  title: {
+    color: "white",
+    fontSize: 50,
+    flexDirection: "column",
+    textTransform: "uppercase",
   },
 });

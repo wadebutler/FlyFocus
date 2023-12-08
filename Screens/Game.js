@@ -36,8 +36,8 @@ export default function Game() {
         onPress={() => navigation.navigate("landing")}
         style={styles.returnArrow}
       >
-        <Text style={{ marginBottom: -17, fontSize: 20 }}>Back</Text>
-        <Ionicons name="return-down-back-outline" size={50} color="black" />
+        <Text style={styles.returnText}>Back</Text>
+        <Ionicons name="return-down-back-outline" size={50} color="white" />
       </TouchableOpacity>
 
       <GameEngine
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     height: "100%",
     width: "100%",
-    elevation: 2,
+    zIndex: 2,
   },
   playAgainButton: {
     flex: 1,
@@ -124,8 +124,13 @@ const styles = StyleSheet.create({
   },
   returnArrow: {
     position: "absolute",
-    zIndex: 1,
+    zIndex: 3,
     top: 10,
     left: 10,
+  },
+  returnText: {
+    marginBottom: -17,
+    fontSize: 20,
+    color: "white",
   },
 });
