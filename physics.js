@@ -50,6 +50,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
       x: obstacleMovement,
       y: 0,
     });
+
     Matter.Body.translate(entities[`ObstacleBottom${i}`].body, {
       x: obstacleMovement,
       y: 0,
